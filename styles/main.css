@@ -1,0 +1,177 @@
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: Arial;
+  width: 100%;
+  /* removing border from body */
+  /* border-color: 2px solid steelblue; */
+  /* box-shadow: 0px 0px 10px black; */
+  margin: 0;
+  padding: 0;
+  /* border: 2px solid steelblue; */
+  font-size: calc(90% + 0.3vw);
+  line-height: 1.5;
+}
+
+a {
+  font-weight: bold;
+}
+
+header {
+  background-image: linear-gradient(to bottom, white, lightsteelblue);
+  border-bottom: solid steelblue;
+  border-top: solid steelblue;
+}
+
+header h1 {
+  font-size: 2em;
+  width: 100%;
+}
+
+header h2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 2vw;
+  color: steelblue;
+  font-style: italic;
+}
+
+header h3 {
+  font-size: calc(90% + 0.3vw);
+}
+
+header img {
+  float: left;
+  margin-right: 20px;
+  width: 20%;
+  max-width: 120px;
+  min-width: 100px;
+}
+section {
+  padding: 10px;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+section h2 {
+  color: maroon;
+}
+section a:link,
+section a:visited {
+  color: maroon;
+}
+
+section a:hover,
+section a:focus {
+  color: steelblue;
+}
+
+aside {
+  border: 2px solid steelblue;
+  border-radius: 10px;
+  height: fit-content;
+  padding: 10px;
+  box-sizing: border-box;
+}
+aside h2 {
+  color: maroon;
+}
+
+aside ul {
+  line-height: 1.5;
+}
+
+aside a:link,
+aside a:visited {
+  color: steelblue;
+}
+
+aside a:hover,
+aside a:focus {
+  color: maroon;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu a {
+  display: block;
+  padding: 0.5em 1em;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu .submenu {
+  display: none;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: steelblue;
+}
+
+.menu li:hover > .submenu {
+  display: flex;
+}
+
+.menu a.current {
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+nav {
+  background-color: steelblue;
+}
+
+footer {
+  font-size: 0.8em;
+  text-align: center;
+  background-color: steelblue;
+  color: white;
+}
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  section {
+    flex-basis: 65%;
+  }
+  aside {
+    flex-basis: 35%;
+  }
+}
+@media (min-width: 1024px) {
+  main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .menu {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .menu .submenu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+  }
+}
+.menu > li:has(.submenu) > a::after {
+  content: "\25B6";
+  font-size: 0.7em;
+}
